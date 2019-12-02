@@ -3,9 +3,18 @@
     <head>
         <link rel="stylesheet" href="{% static 'style.css' %}">
         <h1> Welcome to matchmaker.</h1>
+        <h3> Here you can find electricty sources close to you within your price range!</h3>
     </head>
     <div>
-    	<h4> table </h4>
+    	<form action="/match/" method="post">
+            {% csrf_token %}
+            {% for field in info %}
+
+            <div>{{ field.label }} {{ field }}</div>
+
+            {% endfor %}
+            <input type="submit" value="Submit">
+        </form>
     </div>
 
     {% for seller in matches %}
