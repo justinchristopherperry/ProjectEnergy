@@ -25,4 +25,5 @@ urlpatterns = [
     path('test/', views.test, name="test"), # THIS IS SOLELY FOR MILESTONE 2 PROGRESS REPORT
     path('newseller/', views.newseller, name="newseller"),
     path('newseller/thankyou/', views.thankyou, name="thankyou"),
+    path('countries/', views.countries, name="countries"),
 ]
