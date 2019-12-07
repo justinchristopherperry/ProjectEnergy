@@ -1,0 +1,13 @@
+<html lang="en=US">
+    <div>
+        <h4>
+            Country, Population Needs, Availability
+        </h4>
+           {% for object in myList %}
+           <div>
+               {{object.0.0}}, {{object.1.0}}, {{object.2}}
+           </div>
+           {% endfor %}
+           
+    </div>
+</html>
