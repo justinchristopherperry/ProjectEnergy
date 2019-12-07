@@ -8,6 +8,12 @@ h1 {
     text-align: center;
 }
 
+#id_countries {
+	height: 100px;
+	overflow: scroll;
+	border-style: solid;
+}
+
 .seller {
     font-size: 40px;
     font-family: Arial;

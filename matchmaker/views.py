@@ -15,21 +15,19 @@ def test(request):
 def matchmaker(request):
 	#(prices, countries, sortBy) = get_sql_params() - i'm not sure what to do with this 
 	prices = []
+	countries = []
+	sortBy = []
 	if request.method == 'POST':
 		info = MatchForm(request.POST)
 		if info.is_valid():
 			info = info.clean_match_form()
 			prices = [info['minPrice'], info['maxPrice']]
+			countries = info['countries']
+			sortBy = info['sortBy']
 	else: 
 		info = MatchForm()
 
-
-	#prices = [.01, .05]
-	if len(prices) > 0:
-		print(f"{prices}, {type(prices[0])}")
-	countries = ['Benin', 'Angola']
-	sortBy = ['price_per_kwh','country_name']
-
+	# for before the form is submitted
 	if len(prices) > 0:
 		table = Seller.objects.filter(price_per_kwh__gte=prices[0], price_per_kwh__lte=prices[1])
 	else: table = Seller.objects.all()
