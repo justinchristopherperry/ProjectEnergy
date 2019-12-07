@@ -13,10 +13,7 @@ def test(request):
     return render(request, 'test.html', {'sellers_in_egypt': sellers_in_egypt})
 
 def matchmaker(request):
-	#(prices, countries, sortBy) = get_sql_params() - i'm not sure what to do with this 
-	prices = []
-	countries = []
-	sortBy = []
+	prices, countries, sortBy = [], [], []
 	if request.method == 'POST':
 		info = MatchForm(request.POST)
 		if info.is_valid():
@@ -24,6 +21,7 @@ def matchmaker(request):
 			prices = [info['minPrice'], info['maxPrice']]
 			countries = info['countries']
 			sortBy = info['sortBy']
+			info = MatchForm()
 	else: 
 		info = MatchForm()
 

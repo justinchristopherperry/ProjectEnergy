@@ -19,16 +19,17 @@ class MatchForm(forms.Form):
 	#get price range
 	minPrice = forms.FloatField(label='Minimum price per kwh:', required=False, min_value=0.0)
 	maxPrice = forms.FloatField(label='Maximum price per kwh:', required=False, min_value=0.001)
+	print(maxPrice)
 	#get countries
 	cList = Country.objects.values_list('name', flat=True)
 	cChoices = []
 	for c in cList:
 		cChoices.append((c, c))
 
-	countries = forms.MultipleChoiceField(choices=cChoices, label='pick countrie(s):', widget=forms.CheckboxSelectMultiple())
+	countries = forms.MultipleChoiceField(choices=cChoices, label='Pick countrie(s) (REQUIRED):', widget=forms.CheckboxSelectMultiple())
 	#get sortBy list
 	sortChoices = (('a', 'leave it unsorted'), ('b', 'price'), ('c', 'country'), ('d', 'price, then country'), ('e', 'country, then price'))
-	sort = forms.ChoiceField(choices=sortChoices, label='If you would like to sort results, choose one:', required=False)
+	sort = forms.ChoiceField(choices=sortChoices, label='Sort results:', required=False)
 
 
 	def clean_match_form(self):

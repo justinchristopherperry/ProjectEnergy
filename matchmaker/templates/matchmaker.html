@@ -6,21 +6,37 @@
         <h3> Here you can find electricty sources close to you within your price range!</h3>
     </head>
     <div>
-    	<form action="/match/" method="post">
+    	<form class="formBody" action="/match/" method="post">
             {% csrf_token %}
-            {% for field in info %}
-
-            <div>{{ field.label }} {{ field }}</div>
-
-            {% endfor %}
-
+            <div class="Form">
+                <table>
+                    <tr>
+                    {% for field in info %}
+                        <td>
+                        {{ field.label }} {{ field }}
+                        </td>
+                    {% endfor %}
+                    </tr>
+                </table>
+            </div>
             <input type="submit" value="Submit">
         </form>
     </div>
-
-    {% for seller in matches %}
-    <div class="seller">
-        {{ seller.email }}, {{ seller.phone_number }}, {{ seller.country_name }}, {{seller.price_per_kwh}}
-    </div>
-    {% endfor %}
+    <h3> Sellers:</h3>
+    <table class="result">
+        <tr>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Country</th>
+            <th> Price per kwh (USD)</th>
+        </tr>
+        {% for seller in matches %}
+        <tr>
+            <td>{{ seller.email }}</td> 
+            <td>{{ seller.phone_number }}</td> 
+            <td>{{ seller.country_name }}</td> 
+            <td>{{seller.price_per_kwh}}</td>
+        </tr>
+        {% endfor %}
+        </table>
 </html>
