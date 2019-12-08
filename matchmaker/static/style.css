@@ -17,26 +17,31 @@ td {
 }
 
 .formBody {
-	border: 3px solid black;
+	border: 5px solid #00009c;
   	border-collapse: collapse;
   	padding: 10px;
 }
 
 .Form {
-	padding-bottom: 20px;
+	padding-bottom: 10px;
 }
 
 #id_countries {
-	height: 100px;
+	height: 200px;
 	width: 200px;
 	overflow: scroll;
 	border-style: solid;
-	border-width: 1px;
+	border-width: 3px;
+	border-color: #00009c;
 }
 
 .seller {
     font-size: 40px;
     font-family: Arial;
+}
+
+.notNav{
+    padding: 20px;
 }
 
 

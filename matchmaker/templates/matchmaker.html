@@ -12,6 +12,7 @@ body {
 .topnav {
   overflow: hidden;
   background-color: #333;
+  padding: 0px;
 }
 
 .topnav a {
@@ -32,6 +33,7 @@ body {
   background-color: #00009c;
   color: white;
 }
+
 </style>
 </head>
 <body>
@@ -88,6 +90,7 @@ body {
 
 {% load static %}
 <html lang="en-US">
+<div class = "notNav">
     <head>
         <link rel="stylesheet" href="{% static 'style.css' %}">
         <h1> Welcome to Matchmaker.</h1>
@@ -134,4 +137,5 @@ body {
         </tr>
         {% endfor %}
         </table>
+</div>
 </html>

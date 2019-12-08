@@ -22,12 +22,33 @@
 		<i class="fa fa-check main-content__checkmark" id="checkmark"></i>
 		<p class="main-content__body" data-lead-id="main-content-body">Thanks a bunch for filling that out. It means a lot to us, just like you do!</p>
 	</div>
-
-	<footer class="site-footer" id="footer">
-		<p class="site-footer__fineprint" id="fineprint">Copyright ©2014 | All Rights Reserved</p>
-	</footer>
 </body>
 </html>
 
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+/* unvisited link */
+a:link {
+  color: red;
+}
 
+/* visited link */
+a:visited {
+  color: green;
+}
+
+/* mouse over link */
+a:hover {
+  color: #00009c;
+}
+
+/* selected link */
+a:active {
+  color: blue;
+}
+</style>
+</head>
+</html>
 <a href="{% url 'home' %}">Return Home</a>
