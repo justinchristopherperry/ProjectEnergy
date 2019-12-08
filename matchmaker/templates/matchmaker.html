@@ -1,8 +1,96 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #00009c;
+  color: white;
+}
+</style>
+</head>
+<body>
+
+<div class="topnav">
+  <a class="active" href="http://127.0.0.1:8000/">Home</a>
+  <a href="http://127.0.0.1:8000/countries/">Countries</a>
+  <a href="http://127.0.0.1:8000/newseller/">Add Listing</a>
+  <a href="http://127.0.0.1:8000/match/">Match</a>
+</div>
+
+<!-- <div style="padding-left:16px">
+  <h2>Top Navigation Example</h2>
+  <p>Some content..</p>
+</div> -->
+
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #00009c;
+  color: white;
+}
+</style>
+</head>
+<body>
+
+
+
+
+
 {% load static %}
 <html lang="en-US">
     <head>
         <link rel="stylesheet" href="{% static 'style.css' %}">
-        <h1> Welcome to matchmaker.</h1>
+        <h1> Welcome to Matchmaker.</h1>
         <h3> Here you can find electricty sources close to you within your price range!</h3>
     </head>
     <div>
@@ -16,7 +104,7 @@
                         {% endfor %}
                     {% endfor %}
                 {% endif %}
-                <table>
+                <table id = "customers">
                     <tr>
                     {% for field in info %}
                         <td>
@@ -30,7 +118,7 @@
         </form>
     </div>
     <h3> Sellers:</h3>
-    <table class="result">
+    <table id="customers">
         <tr>
             <th>Email</th>
             <th>Phone Number</th>
