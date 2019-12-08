@@ -16,3 +16,6 @@ class Country(models.Model):
     name = models.CharField(max_length=50, primary_key = True)
     percent_pop_needs_elec = models.FloatField(default=0.0)
 
+
+
+
