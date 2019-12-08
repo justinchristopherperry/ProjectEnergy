@@ -2,6 +2,8 @@ from django.db import models
 from django import forms
 from django.forms import ModelForm
 from .models import Seller, Country
+from django.core.exceptions import ValidationError
+
 
 # Form for a user to upload a seller to the database.
 class SellerForm(ModelForm):
@@ -14,11 +16,19 @@ class SellerForm(ModelForm):
                     'country_name':'Country',
                     'total_produced_2018_Gwh':'Electricity produced in 2018 (Gwh)',
                     'price_per_kwh':'Price per Kwh'}
+#these validate maxprice (max >= min)
+def get_value(value):
+	get_value.my_last_value = value
+def val_min_max(value):
+		minV = get_value.my_last_value
+		print(minV)
+		if minV >value:
+			raise ValidationError('%(minV)s is not less than or equal to %(value)s',params={'minV': minV, 'value': value})
 
 class MatchForm(forms.Form):
 	#get price range
-	minPrice = forms.FloatField(label='Minimum price per kwh:', required=False, min_value=0.0)
-	maxPrice = forms.FloatField(label='Maximum price per kwh:', required=False, min_value=0.001)
+	minPrice = forms.FloatField(label='Minimum price per kwh:', required=False, min_value=0.0, validators=[get_value])
+	maxPrice = forms.FloatField(label='Maximum price per kwh:', required=False, min_value=0.00000001, validators=[val_min_max])
 	print(maxPrice)
 	#get countries
 	cList = Country.objects.values_list('name', flat=True)
@@ -31,7 +41,6 @@ class MatchForm(forms.Form):
 	sortChoices = (('a', 'leave it unsorted'), ('b', 'price'), ('c', 'country'), ('d', 'price, then country'), ('e', 'country, then price'))
 	sort = forms.ChoiceField(choices=sortChoices, label='Sort results:', required=False)
 
-
 	def clean_match_form(self):
 		minP = self.cleaned_data['minPrice']
 		maxP = self.cleaned_data['maxPrice']
@@ -43,11 +52,6 @@ class MatchForm(forms.Form):
 			minP = 0.0
 		if maxP is None:
 			maxP = 1000000
-		# make sure price range is valid
-		if minP < 0:
-			raise ValidationError(_('Invalid price - price is below 0'))
-		if maxP <= 0:
-			raise ValidationError(_('Invalid price - max price must be ablow 0'))
 		#get sort:
 		if not sortBy == "":
 			if sortBy == 'a': sortBy = []
@@ -56,7 +60,6 @@ class MatchForm(forms.Form):
 			elif sortBy == 'd': sortBy = ['price_per_kwh', 'country_name']
 			else: sortBy = ['country_name', 'price_per_kwh']
 			
-		print(f"in clean_match...: {sortBy}")
 		check = {
 			'minPrice': minP,
 			'maxPrice': maxP,

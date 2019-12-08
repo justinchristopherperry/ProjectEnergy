@@ -9,6 +9,13 @@
     	<form class="formBody" action="/match/" method="post">
             {% csrf_token %}
             <div class="Form">
+                {% if info.errors %}
+                    {% for field in info %}
+                        {% for error in field.errors %}
+                        <div><strong>{{ field.name}}: {{ error|escape }}</strong></div>
+                        {% endfor %}
+                    {% endfor %}
+                {% endif %}
                 <table>
                     <tr>
                     {% for field in info %}
