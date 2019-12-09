@@ -15,7 +15,7 @@ The datasets are already loaded in the data folder, but to generate them:
 - run CS316_makeSchema.R
 - download Members.csv, Sellers.csv, Countries.csv from Rstudio into the data folder.
 
-Note: after pulling current repository from GitHub, run the following two commands to synchronize the database:
+Note: if having problems after pulling current repository from GitHub, run the following two commands to synchronize the database:
 ```
 python3 manage.py makemigrations
 python3 manage.py migrate

@@ -1,4 +1,4 @@
-Justin Perry: Established ‘hello world’ web application with Python’s Django framework, instantiated our database’s models, routed blank URL path to our homepage, routed a “/test/” URL path to a test webpage that displays output from a sample query (all Sellers in Egypt) of our database, and helped with writing of the progress report.
+Justin Perry: Built skeleton Django application including establishing early relationships between URL patterns, views, HTML templates and stylesheets. Developed a form for users to upload new sellers into the database. Helped construct the demo presentation slide deck and final report.
 
 Valerie Roberts: Wrote R script to generate missing data and make the datasets follow the schema. Updated the schema in the framework and wrote the code to upload the CSV files into the application. Updated README with data generation instructions. 
 
