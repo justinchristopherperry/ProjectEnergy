@@ -1,9 +1,0 @@
-Justin Perry: Built skeleton Django application including establishing early relationships between URL patterns, views, HTML templates and stylesheets. Developed a form for users to upload new sellers into the database. Helped construct the demo presentation slide deck and final report.
-
-Valerie Roberts: Wrote R script to generate missing data and make the datasets follow the schema. Updated the schema in the framework and wrote the code to upload the CSV files into the application. Updated README with data generation instructions. 
-
-Farzeen Najam: Wrote E/R diagram and updated table, helped installing Django, getting it working on site without errors, helped valerie in loading the csv files into the applications. 
-
-Angel Mcharo. Tested the web application  and run the R-script to check if we are receiving the right answers. Working on a way to transfer HTML to our django framework for a complete website. Changed the design of the interface to allow a button for quick purchases.
-
-Noah Waddell: I worked with Justin to develop the Hello World Application specifically the development of test production files. Created the html file for countries and the link to the countries page to display all the countries, their population needs, and availability. Helped to work on the powerpoint for the final demo.
