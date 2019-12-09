@@ -1,6 +1,6 @@
 Justin Perry: Built skeleton Django application including establishing the relationships between URL patterns, views, HTML templates and stylesheets. Developed a form + webpage for users to upload new sellers into the database. Helped construct the demo presentation slide deck and final report.
 
-Valerie Roberts: Wrote R script to generate missing data and make the datasets follow the schema. Updated the schema in the framework and wrote the code to upload the CSV files into the application. Updated README with data generation instructions. 
+Valerie Roberts: Wrote the matchmaking algorithm with help from Farzeen and wrote the corresponding input form and most of the html on the match webpage. Wrote R script to generate missing data and make the datasets follow the schema. Updated the schema in the framework and wrote the code to upload the CSV files into the application. Helped construct the demo presentation slide deck and final report.
 
 Farzeen Najam:  Wrote most of the CSS and the HTML code for the front end. Helped Valerie with matchmaking algorithm for the backend, earlier designed the E/R diagram for our project.
 
